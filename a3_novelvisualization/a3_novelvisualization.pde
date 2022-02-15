@@ -1,15 +1,15 @@
 String[] lines;
+String written_text;
 color text_color;
 PFont mainFont;
-float line_ypos, line_xpos, word_length;
-float font_size;
-float lineWidth;
+float line_ypos, line_xpos, word_length, line_width;
+int font_size, random_int;
 
 void setup() {
   
   // Line setup
-  lines = loadStrings("/Users/lori/Creative Cloud Files/CollegeWork/CS324E/324E-Project3/allwords.txt");
-  lineWidth = 0;
+  lines = loadStrings("/Users/lori/Creative Cloud Files/CollegeWork/CS324E/324E-Project3/uniquewords.txt");
+  line_width = 0;
   
   // Canvas setup
   background(0);
@@ -27,29 +27,36 @@ void draw () {
   
   // Resets canvas and variables
   background(0);
-  line_ypos = 36;
-  line_xpos = 0;
   
   fill(255);
   textFont(mainFont);
   
   // Writes text
-  for (int i = 0; i < lines.length; ++i) {
+  for (boolean i = false; i == false;) {
     
-    word_length = textWidth(lines[i]);
+    random_int = int(random(lines.length));
+    word_length = textWidth(lines[random_int]);
     
     // Makes sure words don't go off page
-    if (line_xpos + textWidth(lines[i]) > width) {
+    if (line_xpos + textWidth(lines[random_int]) > width) {
      line_ypos += font_size;
      line_xpos = 0;
     }
     
+    if (line_ypos > height) {
+      noLoop();
+      break;
+    }
+    
     // Determines text color
-    myTextColor(lines[i]);
+    myTextColor(lines[random_int]);
     fill(text_color);
     
     // Writes text
-    text(lines[i], line_xpos, line_ypos);
+    written_text += lines[random_int] + " ";
+    text(written_text, line_xpos, line_ypos);
+    println(random_int + " " + lines[random_int]);
+    println(line_xpos + " " + line_ypos + " " + height);
     
     // Changes x position by word length and gives some space
     line_xpos += word_length + 20;   
