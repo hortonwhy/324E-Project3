@@ -1,8 +1,7 @@
 void setup() {
   size(300, 300);
-  int[][] dict = createDictionary(readFile("../wordlist.txt"));
+  int[][] dict = createDictionary(readFile("../wordfrequency.txt"));
   drawBars(dict);
-  
 }
 
 // get string array
@@ -30,7 +29,7 @@ int[][] createDictionary (String[] lines) {
 void drawBars(int[][] dict) {
   // first find max range
   float rect_width = width*0.8 / dict.length;
-  int range_max = 0;
+  float range_max = 0.0;
   for (int i = 0; i < dict.length; i++) {
     if (dict[i][1] > range_max) {
       range_max = dict[i][1];
@@ -40,6 +39,7 @@ void drawBars(int[][] dict) {
   // now determine sizes of each rectange
   float[] rect_height = new float[dict.length];
   for (int i = 0; i < dict.length; i++) {
+    println(dict[i][1] / range_max);
     rect_height[i]  = (dict[i][1] / range_max) * (height*0.8);
   }
 
@@ -47,7 +47,6 @@ void drawBars(int[][] dict) {
   //draw each rectange in descending order
   for (int i = 0; i < dict.length; i++) {
     rect(i*rect_width, rect_width/4, rect_width, rect_height[i]);
-    println(rect_height[i]);
   }
 
 
