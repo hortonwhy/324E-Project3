@@ -40,9 +40,14 @@ void drawBars(int[][] dict) {
   // now determine sizes of each rectangal
   float[] rect_height = new float[dict.length];
   for (int i = 0; i < dict.length; i++) {
-    println(dict[i][1] / range_max);
+    //println(dict[i][1] / range_max);
     rect_height[i]  = (dict[i][1] / range_max) * (height*0.8);
   }
+
+  fill(0);
+  text("Zoomed in view, limited to first 20", width/2.5, height*0.09);
+  fill(200);
+  rect((width/4), rect_width/2+(height/10), rect_width*8*12+(width/4), rect_height[0] +30);
 
 
   //draw each rectange in descending order
@@ -64,27 +69,9 @@ void drawBars(int[][] dict) {
     }
   }
 
-  strokeWeight(5);
-  //line(width/7, height/8, rect_width*8+(width/4), rect_width/4+(height/2)-20);
-  fill(0);
-  textSize(80);
-  text("=", width/6, height/3);
-  noFill();
-  strokeWeight(2);
-  arc(0, 0, width/4, height*1.9, 0, PI/2);
-
-
   String s = "[Key] Frequency: number of words with this frequency";
   textAlign(CENTER);
   fill(0);
   textSize(12);
   text(s, width/2, height*0.9);
-
-
-}
-
-
-
-
-void draw() {
 }
