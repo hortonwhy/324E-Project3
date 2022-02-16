@@ -36,7 +36,7 @@ void drawBars(int[][] dict) {
     }
   }
 
-  // now determine sizes of each rectange
+  // now determine sizes of each rectangal
   float[] rect_height = new float[dict.length];
   for (int i = 0; i < dict.length; i++) {
     println(dict[i][1] / range_max);
@@ -47,6 +47,8 @@ void drawBars(int[][] dict) {
   //draw each rectange in descending order
   for (int i = 0; i < dict.length; i++) {
     rect(i*rect_width, rect_width/4, rect_width, rect_height[i]);
+    
+    text(str(dict[i][0]) + ":" +  str(dict[i][1]), rect_width + rect_width*i + 4, rect_height[i] + 5);
   }
 
 
