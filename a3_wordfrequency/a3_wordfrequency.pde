@@ -1,5 +1,6 @@
 void setup() {
   size(700, 600);
+  background(155, 211, 221);
   int[][] dict = createDictionary(readFile("../wordfrequency.txt"));
   drawBars(dict);
 }
@@ -46,10 +47,38 @@ void drawBars(int[][] dict) {
 
   //draw each rectange in descending order
   for (int i = 0; i < dict.length; i++) {
+    fill(255);
     rect(i*rect_width, rect_width/4, rect_width, rect_height[i]);
-    
-    text(str(dict[i][0]) + ":" +  str(dict[i][1]), rect_width + rect_width*i + 4, rect_height[i] + 5);
+
+    // some code from processing docs
+    if (i < 20){ 
+      fill(255/(i+1));
+      rect((i)*rect_width*8+(width/4), rect_width/2+(height/10), rect_width*8, rect_height[i]);
+      pushMatrix();
+      //float angle1 = radians(90);
+      fill(0);
+      //rotate(angle1);
+      translate((rect_width*8)+(width/4), rect_width/2+(height/10));
+      text(str(dict[i][0]) + ":" +  str(dict[i][1]), i*(rect_width*8)-15, rect_height[i] + 25);
+      popMatrix();
+    }
   }
+
+  strokeWeight(5);
+  //line(width/7, height/8, rect_width*8+(width/4), rect_width/4+(height/2)-20);
+  fill(0);
+  textSize(80);
+  text("=", width/6, height/3);
+  noFill();
+  strokeWeight(2);
+  arc(0, 0, width/4, height*1.9, 0, PI/2);
+
+
+  String s = "[Key] Frequency: number of words with this frequency";
+  textAlign(CENTER);
+  fill(0);
+  textSize(12);
+  text(s, width/2, height*0.9);
 
 
 }
