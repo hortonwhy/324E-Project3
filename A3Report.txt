@@ -1,0 +1,19 @@
+Name: Lori VanHoose, Ryan Hartung, Wyatt Hort
+ID: dpv337, rmh3733, weh647
+Date: 02/15/2022
+Class: CS234E
+
+Functionality:
+- Generate three text files for the Processing files to use
+- Creates a word cloud based off of unique words from novel chosen with words in colors based off of a vowel system
+- Creates graph based off of word frequency from novel chosen
+
+Interesting features:
+- Colors of text is based off of what vowels (or lack of vowels) the word has
+
+Software reliance:
+- We looked at processing documentation about how to input files
+- We looked up RGB color codes
+
+Issues:
+- None.

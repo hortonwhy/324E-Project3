@@ -1,6 +1,6 @@
 String[] lines;
 String written_text = "";
-color text_color, black, red, orange, yellow, green, blue;
+color text_color, white, red, orange, yellow, green, blue;
 PFont main_font;
 float line_ypos, line_xpos, word_length;
 int font_size, random_int;
@@ -26,7 +26,7 @@ void setup() {
   line_ypos = font_size*.8;
   
   // Color setup
-  black = color(255);
+  white = color(255);
   red = color(255, 0, 0);
   orange = color(250, 150, 0);
   yellow = color(250, 250, 0);
@@ -90,6 +90,6 @@ void myTextColor (String current_word){
     text_color = blue;
     
   } else {
-    text_color = black;
+    text_color = white;
   }
 }
