@@ -1,5 +1,5 @@
 void setup() {
-  size(300, 300);
+  size(700, 600);
   int[][] dict = createDictionary(readFile("../wordfrequency.txt"));
   drawBars(dict);
 }
