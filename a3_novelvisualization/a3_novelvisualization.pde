@@ -93,3 +93,14 @@ void myTextColor (String current_word){
     text_color = white;
   }
 }
+
+void mouseClicked(){
+  
+  // Refresh background
+  background(0);
+  redraw();
+  
+  // Line setup
+  line_xpos = font_size*.8;
+  line_ypos = font_size*.8;
+}
