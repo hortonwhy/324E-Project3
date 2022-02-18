@@ -1,7 +1,7 @@
-Name: Lori VanHoose, Ryan Hartung, Wyatt Hort
+Name: Lori VanHoose, Ryan Hartung, Wyatt Horton
 ID: dpv337, rmh3733, weh647
 Date: 02/15/2022
-Class: CS234E
+Class: CS324E
 
 Functionality:
 - Generate three text files for the Processing files to use
@@ -11,10 +11,16 @@ Functionality:
 
 Interesting features:
 - Colors of text is based off of what vowels (or lack of vowels) the word has
+- Word frequency has a cool zoomed in version of the same graph with labeled frequencies
 
 Software reliance:
 - We looked at processing documentation about how to input files
 - We looked up RGB color codes
+
+Responsibilities (who did what):
+- Lori VanHoose: Novel Visualization
+- Ryan Hartung:  Python extract words
+- Wyatt Horton:  Word frequency and wordcloud.png
 
 Issues:
 - None.

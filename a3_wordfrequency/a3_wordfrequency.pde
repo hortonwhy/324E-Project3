@@ -1,5 +1,6 @@
 void setup() {
   size(700, 600);
+  background(155, 211, 221);
   int[][] dict = createDictionary(readFile("../wordfrequency.txt"));
   drawBars(dict);
 }
@@ -39,23 +40,38 @@ void drawBars(int[][] dict) {
   // now determine sizes of each rectangal
   float[] rect_height = new float[dict.length];
   for (int i = 0; i < dict.length; i++) {
-    println(dict[i][1] / range_max);
+    //println(dict[i][1] / range_max);
     rect_height[i]  = (dict[i][1] / range_max) * (height*0.8);
   }
+
+  fill(0);
+  text("Zoomed in view, limited to first 20", width/2.5, height*0.09);
+  fill(200);
+  rect((width/4), rect_width/2+(height/10), rect_width*8*12+(width/4), rect_height[0] +30);
 
 
   //draw each rectange in descending order
   for (int i = 0; i < dict.length; i++) {
+    fill(255);
     rect(i*rect_width, rect_width/4, rect_width, rect_height[i]);
-    
-    text(str(dict[i][0]) + ":" +  str(dict[i][1]), rect_width + rect_width*i + 4, rect_height[i] + 5);
+
+    // some code from processing docs
+    if (i < 20){ 
+      fill(255/(i+1));
+      rect((i)*rect_width*8+(width/4), rect_width/2+(height/10), rect_width*8, rect_height[i]);
+      pushMatrix();
+      //float angle1 = radians(90);
+      fill(0);
+      //rotate(angle1);
+      translate((rect_width*8)+(width/4), rect_width/2+(height/10));
+      text(str(dict[i][0]) + ":" +  str(dict[i][1]), i*(rect_width*8)-15, rect_height[i] + 25);
+      popMatrix();
+    }
   }
 
-
-}
-
-
-
-
-void draw() {
+  String s = "[Key] Frequency: number of words with this frequency";
+  textAlign(CENTER);
+  fill(0);
+  textSize(12);
+  text(s, width/2, height*0.9);
 }
