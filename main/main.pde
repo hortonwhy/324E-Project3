@@ -22,8 +22,8 @@ void setup() {
   cb1 = new CelestialBody(200, 200, 20, blue);
   moon = new Moon(200, 100, 30);
   sun = new Sun(300, 100, 50);
-  stars = new Stars();
-  solarSystem = new SolarSystem(width/2, height/2, 100, gray, 50, 1);
+  stars = new Stars(200, 100, 5, white, 10, 1);
+  solarSystem = new SolarSystem(width/2, height/2, 100, gray, 100, 1);
 }
 
 void draw() {
@@ -45,7 +45,9 @@ void draw() {
   solarSystem.move();
   
   // Stars
-  //stars.display();
+  stars.display();
+  stars.setCenter(moon.getPosition());
+  stars.move();
   
   drawForeground();
 }

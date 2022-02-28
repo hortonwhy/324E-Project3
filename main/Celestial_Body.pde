@@ -35,9 +35,9 @@ class CelestialBody {
     velocity.y = y;
   }
   
-  void setPosition(float x, float y){
-    position.x = x;
-    position.y = y;
+  void setPosition(PVector new_position){
+    position.x = new_position.x;
+    position.y = new_position.y;
   }
   
   public PVector getPosition() {
